@@ -1,0 +1,83 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --clr-darkgreen: #4f772d;
+  --clr-litgreen: #90a955;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-darkgreen);
+}
+form {
+  width: 22rem;
+  background-color: var(--clr-litgreen);
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.8rem;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px;
+}
+
+form:hover {
+  box-shadow: 0 0 60px darkgreen;
+}
+
+h1 {
+  font-size: xx-large;
+  text-align: center;
+}
+label {
+  font-size: 1rem;
+  font-weight: 540;
+  border: none;
+  margin-left: 0.4rem;
+  
+}
+.input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 12px;
+  width: 18rem;
+
+}
+.inpu-control input:focus {
+  outline: 0;
+}
+.inpu-control.success input {
+  border-color: #09c372;
+}
+.inpu-control.error input {
+  border-color: #ff3860;
+}
+.inpu-control.error {
+  font-size: larger;
+  color: red;
+  margin-left: 1rem;
+}
+
+button {
+  padding: 0.5rem 7.2rem;
+  margin-left: rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  border: none;
+  font-size: large;
+  font-weight: 550;
+  transition: 0.4s;
+}
+button:hover {
+  background-color: #4f772d;
+  transform: scale(1.1);
+}

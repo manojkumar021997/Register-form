@@ -1,72 +1,74 @@
 /** @format */
 
-// get input
 const form = document.getElementById("form");
-const username = document.getElementById("username");
+const name = document.getElementById("name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmpassword = document.getElementById("confirmpassword");
+const mobilenumber = document.getElementById("mobilenumber");
 
-// addEventlistner
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  validateInputs();
+  checkInput();
 });
-const setError = (element, message) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
 
-  errorDisplay.innerText = (message);
-  inputControl.classList.add("error");
-  inputControl.classList.remove("succes");
-};
-const setSuccess = (element) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-
-  errorDisplay.innerText = "";
-  inputControl.classList.add("succes");
-  inputControl.classList.remove("error");
-};
-
-const isValidEmail = (email) => {
-  const regexCheck =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regexCheck.test(String(email).toLocaleLowerCase());
-};
-const validateInputs = () => {
-  const usernameValue = username.value.trim();
+function checkInput() {
+  const nameValue = name.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
   const confirmpasswordValue = confirmpassword.value.trim();
+  const mobilenumberValue = mobilenumber.value.trim();
 
-  if (usernameValue === "") {
-    setError(username, "Username is mandatory");
+  if (nameValue == "") {
+    setError(name, "Name Cannot be Blank");
   } else {
-    setSuccess(username);
+    setSuccess(name);
   }
-  if (emailValue === "") {
-    setError(email, "Email is mandatory");
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, "provide a valid email address");
+
+  if (emailValue == "") {
+    setError(email, "Email Cannot be Blank");
+  } else if (emailValue.indexOf("@") <= 0) {
+    setError(email, "Invalid email");
   } else {
     setSuccess(email);
   }
 
+  if (confirmpasswordValue === "") {
+    setError(confirmpassword, "Confirm Password Cannot be Blank");
+  } else if (passwordValue !== confirmpasswordValue) {
+    setError(confirmpassword, "Incorrect password");
+  } else {
+    setSuccess(confirmpassword);
+  }
+
+  let passw = /^[a-zA-Z0-9!@#$%^&*]{6,10}$/;
+
   if (passwordValue === "") {
-    setError(password, "Password is mandatory");
-  } else if (passwordValue.length < 8) {
-    setError(password, "Password must be at least 8 character.");
+    setError(password, "Password Cannot be Blank");
+  } else if (!passwordValue.match(passw)) {
+    setError(password, "Enter Valid password");
   } else {
     setSuccess(password);
   }
 
-  if (confirmpasswordValue === "") {
-    setError(confirmpassword, "Please confirm your password");
-  } else if (confirmpasswordValue !== passwordValue) {
-    setError(confirmpassword, "Password doesn't match");
+  if (mobilenumberValue == "") {
+    setError(mobilenumber, "MobileNumber Cannot be Blank");
+  } else if (mobilenumberValue.length < 10 || mobilenumberValue.length > 10) {
+    setError(mobilenumber, "Enter Valid number");
   } else {
-    setError(confirmpassword);
+    setSuccess(mobilenumber);
   }
-};
+
+  function setError(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+    formControl.className = "form-control error";
+    small.innerText = message;
+  }
+  function setSuccess(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+    formControl.className = "form-control success";
+    small.innerText = message;
+  }
+}

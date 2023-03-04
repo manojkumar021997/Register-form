@@ -1,71 +1,53 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register Form</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <form id="form">
-      <h1>Register Form</h1>
-      <div class="inpu-control">
-        <label for="username"
-          >username
-          <input
-            type="text"
-            name="username"
-            class="input"
-            id="username"
-            placeholder=" username"
-          />
-        </label>
-        <div class="error"></div>
-      </div>
-      <div class="inpu-control">
-        <label for="email"
-          >e-mail
-          <input
-            type="text" 
-            name="email"
-            class="input"
-            id="email"
-            placeholder="Enter your email"
-          />
-        </label>
-        <div class="error"></div>
-      </div>
-      <div class="inpu-control">
-        <label for="password"
-          >password
-          <input
-            type="password"
-            name="password"
-            class="input"
-            id="password"
-            placeholder="Enter your password"
-          />
-        </label>
-        <div class="error"></div>
-      </div>
-      <div class="inpu-control">
-        <label for="confirm password"
-          >confirm password
-          <input
-            type="password"
-            name="confirm-password"
-            class="input"
-            id="confirmpassword"
-            placeholder="confirm password"
-          />
-        </label>
-        <div class="error"></div>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Registration Form</h2>
+        </div>
+        <form class="form" id="form">
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" placeholder="Username" id="name">
+                <small>Name Cannot be Blank</small>
+
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" placeholder="email" id="email">
+                <small>Email Cannot be Blank</small>
+            </div>
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" placeholder="password" id="password">
+                <small>Password Cannot be Blank</small>
+            </div>
+            <div class="form-control">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="confirm password" id="confirmpassword">
+                <small>Confirm Password Cannot be Blank</small>
+            </div>
+            <div class="form-control">
+                <label>Mobile number</label>
+                <input type="tel" placeholder="mobile number" id="mobilenumber">
+                <small>Error Message</small>
+            </div>
+           
+            <button>submit</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+
 </html>

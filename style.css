@@ -7,77 +7,87 @@
 }
 :root {
   --clr-darkgreen: #4f772d;
-  --clr-litgreen: #90a955;
+  --clr-lightgreen:#90a955;
 }
+
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  background-color: var(--clr-darkgreen);
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--clr-darkgreen);
 }
-form {
-  width: 22rem;
-  background-color: var(--clr-litgreen);
-  padding: 2rem;
-  justify-content: center;
-  align-items: center;
-  line-height: 2.8rem;
+
+.container {
   border-radius: 12px;
-  box-shadow: 4px 4px 8px;
+  box-shadow: 10px 20px 25px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  width: 22rem;
+  margin-top: 1rem;
+  background-color:var(--clr-lightgreen);
 }
-
-form:hover {
-  box-shadow: 0 0 60px darkgreen;
+.container:hover{
+    box-shadow: 0 0 60px var(--clr-lightgreen);
 }
-
-h1 {
-  font-size: xx-large;
+.header {
+  margin-bottom: -0.6rem;
+  margin-top: 0.8rem;
+}
+.header h2 {
+  margin: 0;
   text-align: center;
 }
-label {
-  font-size: 1rem;
-  font-weight: 540;
-  border: none;
-  margin-left: 0.4rem;
-  
+.form {
+  padding: 30px 40px;
 }
-.input {
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: none;
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.form-control label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input {
+  border: 2px solid rgba(128, 128, 128, 0.313);
   border-radius: 12px;
-  width: 18rem;
-
+  display: block;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
 }
-.inpu-control input:focus {
-  outline: 0;
+.form-control input:focus {
+  outline: none;
+  border-color: #777;
 }
-.inpu-control.success input {
-  border-color: #09c372;
-}
-.inpu-control.error input {
-  border-color: #ff3860;
-}
-.inpu-control.error {
-  font-size: larger;
+.form-control small {
   color: red;
-  margin-left: 1rem;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  visibility: hidden;
+  font-weight: 600;
 }
-
-button {
-  padding: 0.5rem 7.2rem;
-  margin-left: rem;
-  margin-top: 1.5rem;
-  border-radius: 12px;
+.form-control.error small {
+  visibility: visible;
+}
+.form button {
+  background-color: var(--clr-darkgreen);
   border: none;
-  font-size: large;
-  font-weight: 550;
+  color:black;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 12px;
   transition: 0.4s;
 }
-button:hover {
-  background-color: #4f772d;
+.form button:hover {
+  color: white;
   transform: scale(1.1);
 }
